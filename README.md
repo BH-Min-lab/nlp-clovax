@@ -1,83 +1,108 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/HS6nBbT4)
-# 프로젝트 이름
+# Dialogue Summarization
 
-<br>
+</br>
 
 ## 프로젝트 소개
-### <프로젝트 소개>
-- _이번 프로젝트에 대해 소개를 작성해주세요_
 
-### <작품 소개>
-- _만드신 작품에 대해 간단한 소개를 작성해주세요_
+일상생활에서 대화는 항상 이루어지고 있습니다. 회의나 토의는 물론이고, 사소한 일상 대화 중에도 서로 다양한 주제와 입장들을 주고 받습니다. 나누는 대화를 녹음해두더라도 대화 전체를 항상 다시 들을 수는 없기 때문에 요약이 필요하고, 이를 위한 통화 비서와 같은 서비스들도 등장하고 있습니다.
 
-<br>
+그러나 하나의 대화에서도 관점, 주제별로 정리하면 수 많은 요약을 만들 수 있습니다. 대화를 하는 도중에 이를 요약하게 되면 대화에 집중할 수 없으며, 대화 이후에 기억에 의존해 요약하게 되면 오해나 누락이 추가되어 주관이 많이 개입되게 됩니다.
+
+이를 돕기 위해, 우리는 이번 대회에서 일상 대화를 바탕으로 요약문을 생성하는 모델을 구축합니다!
+
+</br>
 
 ## 팀 구성원
 
-| ![박패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![이패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![최패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![오패캠](https://avatars.githubusercontent.com/u/156163982?v=4) |
-| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-|            [박패캠](https://github.com/UpstageAILab)             |            [이패캠](https://github.com/UpstageAILab)             |            [최패캠](https://github.com/UpstageAILab)             |            [김패캠](https://github.com/UpstageAILab)             |            [오패캠](https://github.com/UpstageAILab)             |
-|                            팀장, 담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |
+| ![김장원](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김영](https://avatars.githubusercontent.com/u/156163982?v=4) | ![문채린](https://avatars.githubusercontent.com/u/156163982?v=4) | ![민병호](https://avatars.githubusercontent.com/u/156163982?v=4) | ![이윤서](https://avatars.githubusercontent.com/u/156163982?v=4) | ![정민지](https://avatars.githubusercontent.com/u/156163982?v=4) |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+|            [김장원](https://github.com/UpstageAILab)             |            [김영](https://github.com/UpstageAILab)             |            [문채린](https://github.com/UpstageAILab)             |            [민병호](https://github.com/UpstageAILab)             |            [이윤서](https://github.com/UpstageAILab)             |            [정민지](https://github.com/UpstageAILab)             |
+|                            팀장, 담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |
 
-<br>
+</br>
 
 ## 1. 개발 환경 및 기술 스택
+
 - 주 언어 : _ex) python_
 - 버전 및 이슈관리 : _ex) github_
 - 협업 툴 : _ex) github, notion_
 
-<br>
+</br>
 
-## 2. 프로젝트 구조
-```
-├── code
-│   ├── jupyter_notebooks
-│   │   └── model_train.ipynb
-│   └── train.py
-├── docs
-│   ├── pdf
-│   │   └── (Template) [패스트캠퍼스] Upstage AI Lab 1기_그룹 스터디 .pptx
-│   └── paper
-└── input
-    └── data
-        ├── eval
-        └── train
+## 2. 프로젝트 구조 (추후 변경 가능)
+
+```txt
+.
+├── README.md               # 대회 정리 및 실행 가이드
+├── data                    # 데이터 저장폴더 (.csv 등)
+├── docs                    # 중요 문서 저장폴더 (.md, .docx 등)
+├── notebooks               # EDA, 실험 노트북 (.ipynb)
+├── output                  # 결과물 파일 저장 폴더
+│   ├── model               # 모델결과물 저장 폴더 (.pt 등)
+│   └── submission          # 제출물 파일 저장 폴더 (.csv)
+└── src                     # 소스 코드 (.py)
+    ├── data
+    │   ├── postproceess    # 데이터 후처리 코드 폴더
+    │   └── preprocess      # 데이터 전처리 코드 폴더
+    ├── evaluate
+    │   └── evaluate.py     # 평가지표 계산
+    ├── inference
+    │   └── inference.py    # 추론
+    ├── main.py
+    ├── model               # 모델 코드 폴더
+    ├── train 
+    │   └── train.py        # 학습
+    └── utils               # 유틸
 ```
 
-<br>
+</br>
 
 ## 3. 구현 기능
+
 ### 기능1
-- _작품에 대한 주요 기능을 작성해주세요_
-### 기능2
-- _작품에 대한 주요 기능을 작성해주세요_
-### 기능3
+
 - _작품에 대한 주요 기능을 작성해주세요_
 
-<br>
+### 기능2
+
+- _작품에 대한 주요 기능을 작성해주세요_
+
+### 기능3
+
+- _작품에 대한 주요 기능을 작성해주세요_
+
+</br>
 
 ## 4. 작품 아키텍처(필수X)
-- #### _아래 이미지는 예시입니다_
+
+아래 이미지는 예시입니다
+
 ![이미지 설명](https://www.cadgraphics.co.kr/UPLOAD/editor/2024/07/04//2024726410gH04SyxMo3_editor_image.png)
 
-<br>
+</br>
 
 ## 5. 트러블 슈팅
+
 ### 1. OOO 에러 발견
 
 #### 설명
+
 - _프로젝트 진행 중 발생한 트러블에 대해 작성해주세요_
 
 #### 해결
+
 - _프로젝트 진행 중 발생한 트러블 해결방법 대해 작성해주세요_
 
-<br>
+</br>
 
 ## 6. 프로젝트 회고
+
 ### 박패캠
+
 - _프로젝트 회고를 작성해주세요_
 
-<br>
+</br>
 
 ## 7. 참고자료
+
 - _참고자료를 첨부해주세요_
